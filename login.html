@@ -1,43 +1,80 @@
 
-<!DOCTYPE html>
+<!Doctype>
 <html>
 <head>
-  <title></title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+<title>Bucket list login form</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="css/style.css"/>
+<!-- Include JS File Here -->
+<script></script>
 </head>
 <body>
+<center>
 <div class="container">
-<center><h4>Bucket List Login Form for all members</h4>
 
-	
-<form>
-<div> 
-	<input type="text" class="form-control" name ="username" style="width:30%; min-height: 30px;" placeholder="Enter Username">
-</div>
-<br>
-<div>
-	<input type="password" class="form-control" name ="password" style="width:30%; min-height: 30px;" placeholder="Enter Password">
-</div>
+<h1 style="color: orange;font-weight: bold;text-shadow: white;">WELCOME TO MY BUCKET LIST LIFE GOALS</h1><br>
+<h4>use dyna as the username and 0000 as the password</h4>
+<style type="text/css">
+body, html {
+    height: 100%;
+}
 
-<br>
-<button type="submit" name="btn_login"  class="btn btn-primary"><a href="register.html">login</a></button></div>
+.container { 
+    /* The image used */
+    background-image: url("images/img1.png");
 
-</button>
+    /* Full height */
+    height: 100%; 
 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 2000px;
+
+
+}
+
+
+</style>
+<div class="login">
+<form id="form_id" method="post" name="myform">
+<br><br>
+
+<input type="text" name="username" placeholder="Enter username" id="username" style="min-width:20%; min-height:30px;" />
+<br><br>
+<input type="password" name="password" placeholder="Enter password" id="password" style="min-width:20%; min-height:30px;"/>
+<br><br>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
 </form>
-</center>
 
 </div>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</div>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script>
+	var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "dyna" && password == "0000"){
+alert ("Login successfully");
+window.location = "register.html"; // Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+</script>
+</center>
 </body>
 </html>
